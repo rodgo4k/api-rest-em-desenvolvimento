@@ -3,13 +3,13 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     res.status(200).send({
-        mensagem: 'GET na rota de produtos'
+        mensagem: 'Retorna todos os produtos'
     });
 });
 
 router.post('/', (req, res, next) => {
     res.status(201).send({
-        mensagem: 'POST na rota de produtos'
+        mensagem: 'Insere um produto'
     });
 });
 
@@ -24,9 +24,21 @@ router.get('/:id_produto', (req, res, next) => {
     } else {
         res.status(200).send({
             mensagem: 'passando id pelo GET',
-            id: id
+            id: id,
         });
     }
+});
+
+router.patch('/', (req, res, next) => {
+    res.status(201).send({
+        mensagem: 'Produto alterado'
+    });
+});
+
+router.delete('/', (req, res, next) => {
+    res.status(201).send({
+        mensagem: 'Produto excluído'
+    });
 });
 
 module.exports = router;
